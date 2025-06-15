@@ -1,0 +1,13 @@
+---
+- hosts: local
+  become: yes
+  tasks:
+    - name: Ensure Docker is installed
+      apt:
+        name: docker.io
+        state: present
+        update_cache: yes
+
+    - name: Run StadtinfoAPI container
+      shell: docker run -d -p 8000:8000 --name stadtinfoapi stadtinfo-api
+      ignore_errors: yes
