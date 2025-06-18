@@ -2,18 +2,16 @@ from fastapi import FastAPI
 import json
 from fastapi.responses import JSONResponse
 
-app = FastAPI()
+app = FastAPI(title="Personen-API", description="Verwaltung einfacher Personendaten")
 
+# Daten aus JSON laden
 with open("app/data.json", "r", encoding="utf-8") as f:
-    cities = json.load(f)
+    personen = json.load(f)
 
-@app.get("/cities")
-def list_cities():
-    return list(cities.keys())
+@app.get("/personen")
+def list_personen():
+    return list(personen.keys())
 
-@app.get("/cities/{city_name}")
-def get_city(city_name: str):
-    city = cities.get(city_name.lower())
-    if city:
-        return city
-    return JSONResponse(status_code=404, content={"error": "City not found"})
+@app.get("/")
+def startseite():
+    return {"info": "Willkommen bei der Personen-API. Bitte /personen aufrufen."}

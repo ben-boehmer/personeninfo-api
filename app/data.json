@@ -1,0 +1,14 @@
+{
+    "boehmer": {
+      "vorname": "Benjamin",
+      "nachname": "Böhmer",
+      "geburtsdatum": "1981-04-25",
+      "rentenstatus": "aktiv"
+    },
+    "schmidt": {
+      "vorname": "Anna",
+      "nachname": "Schmidt",
+      "geburtsdatum": "1952-11-03",
+      "rentenstatus": "im Ruhestand"
+    }
+  }
